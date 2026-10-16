@@ -1,0 +1,95 @@
+{
+  "case_id": "synthetic-pass",
+  "topic": "HMFOR route planning — fictional training case",
+  "evidence": [
+    {
+      "id": "E1",
+      "source_ref": "demo://synthetic-record-1",
+      "claim": "A fictional screening log flags route repeatability as an unresolved issue. No catalytic result is asserted."
+    },
+    {
+      "id": "E2",
+      "source_ref": "demo://synthetic-record-2",
+      "claim": "A fictional review note asks for matched controls and separate product measurements."
+    }
+  ],
+  "pre_meeting": [
+    {
+      "role": "PI",
+      "assessment": "Compare two generic route concepts under matched conditions.",
+      "concern": "Do not treat this fictional case as evidence of performance.",
+      "evidence_ids": ["E1", "E2"]
+    },
+    {
+      "role": "Critic",
+      "assessment": "Require a negative control and an explicit rejection rule.",
+      "concern": "The fictional inputs have no real laboratory provenance.",
+      "evidence_ids": ["E2"]
+    },
+    {
+      "role": "SynthesisAssistant",
+      "assessment": "Route A appears simpler to document in this training example.",
+      "concern": "Preparation repeatability must be checked before interpretation.",
+      "evidence_ids": ["E1"]
+    },
+    {
+      "role": "CharacterizationAssistant",
+      "assessment": "Collect independent structure and product observations.",
+      "concern": "One measurement cannot establish a mechanism.",
+      "evidence_ids": ["E2"]
+    }
+  ],
+  "branches": [
+    {
+      "branch_id": "B1",
+      "lens": "route feasibility",
+      "turns": [
+        {"role": "PI", "statement": "Open the route-feasibility review.", "evidence_ids": ["E1"]},
+        {"role": "SynthesisAssistant", "statement": "Request repeatability records.", "evidence_ids": ["E1"]},
+        {"role": "CharacterizationAssistant", "statement": "Separate structural and product checks.", "evidence_ids": ["E2"]},
+        {"role": "Critic", "statement": "Reject claims without matched controls.", "evidence_ids": ["E2"]},
+        {"role": "PI", "statement": "Advance only a comparison plan for human review.", "evidence_ids": ["E1", "E2"]}
+      ],
+      "accepted_decisions": ["Use matched controls before interpreting any difference.", "Document route repeatability."],
+      "rejected_ideas": [{"idea": "Declare a preferred mechanism from the meeting", "reason": "No real experimental evidence was supplied."}],
+      "open_questions": ["Can the fictional route be repeated under a common protocol?"],
+      "cited_evidence_ids": ["E1", "E2"],
+      "candidate": {
+        "id": "route-a",
+        "route_label": "Generic route A versus baseline",
+        "controls": ["Baseline prepared under the same generic protocol", "Blank measurement"],
+        "measurements": ["Preparation repeatability", "Separate product readout"],
+        "decision_rule": "Advance only if repeatability and both control checks pass."
+      }
+    },
+    {
+      "branch_id": "B2",
+      "lens": "verification and falsification",
+      "turns": [
+        {"role": "PI", "statement": "Open the verification review.", "evidence_ids": ["E2"]},
+        {"role": "CharacterizationAssistant", "statement": "Specify independent observations.", "evidence_ids": ["E2"]},
+        {"role": "SynthesisAssistant", "statement": "Record batch-to-batch variation.", "evidence_ids": ["E1"]},
+        {"role": "Critic", "statement": "A meeting agreement is not source evidence.", "evidence_ids": ["E1", "E2"]},
+        {"role": "PI", "statement": "Keep the route conditional on validation.", "evidence_ids": ["E2"]}
+      ],
+      "accepted_decisions": ["Use matched controls before interpreting any difference.", "Keep competing explanations open."],
+      "rejected_ideas": [{"idea": "Skip the baseline run", "reason": "The proposed comparison would be uninterpretable."}],
+      "open_questions": ["Which measurement best separates alternative explanations?"],
+      "cited_evidence_ids": ["E1", "E2"],
+      "candidate": {
+        "id": "route-b",
+        "route_label": "Generic route B versus baseline",
+        "controls": ["Baseline prepared under the same generic protocol"],
+        "measurements": ["Batch variation", "Independent product readout"],
+        "decision_rule": "Advance only if the baseline and repeatability checks pass."
+      }
+    }
+  ],
+  "researcher_selected_candidate_id": "route-a",
+  "experimental_result": {
+    "experiment_id": "experiment-route-a",
+    "observation": "Fictional result: one quality check is incomplete; request another measurement.",
+    "recorded_by": "DemoResearcher",
+    "source_ref": "demo://synthetic-result-1"
+  }
+}

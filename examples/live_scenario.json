@@ -1,0 +1,17 @@
+{
+  "case_id": "synthetic-live-draft",
+  "topic": "HMFOR route planning — fictional training case",
+  "evidence": [
+    {
+      "id": "E1",
+      "source_ref": "demo://synthetic-record-1",
+      "claim": "A fictional screening log flags route repeatability as an unresolved issue. No catalytic result is asserted."
+    },
+    {
+      "id": "E2",
+      "source_ref": "demo://synthetic-record-2",
+      "claim": "A fictional review note asks for matched controls and separate product measurements."
+    }
+  ],
+  "branch_lenses": ["route feasibility", "verification and falsification"]
+}
